@@ -8,8 +8,8 @@ defmodule ExAdmin.Utils do
   @module Application.get_env(:ex_admin, :module)
 
   if @module do
-    @endpoint Module.concat([@module, "Endpoint"])
-    @router Module.concat([@module, "Router", "Helpers"])
+    @endpoint Module.concat([@module, "Web", "Endpoint"])
+    @router Module.concat([@module, "Web", "Router", "Helpers"])
 
     @doc false
     def endpoint, do: @endpoint
@@ -23,9 +23,9 @@ defmodule ExAdmin.Utils do
     run 'touch deps/ex_admin/mix.exs && mix deps.compile ex_admin'.
     """
     @doc false
-    def endpoint, do: Module.concat([Application.get_env(:ex_admin, :module), "Endpoint"])
+    def endpoint, do: Module.concat([Application.get_env(:ex_admin, :module), "Web", "Endpoint"])
     @doc false
-    def router, do: Module.concat([Application.get_env(:ex_admin, :module), "Router", "Helpers"])
+    def router, do: Module.concat([Application.get_env(:ex_admin, :module), "Web", "Router", "Helpers"])
   end
 
   @doc false
